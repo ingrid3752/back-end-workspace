@@ -49,17 +49,7 @@ JOIN film USING (film_id)
 WHERE title = 'NOON PAPI';
 
 -- 4. 각 카테고리별 이메일이 JOYCE.EDWARDS@sakilacustomer.org인 고객이 빌린 DVD 대여 수 조회
--- JOYCE.EDWARDS 의 customer_id
 SELECT * FROM category;
-SELECT customer_id
-FROM customer
-JOIN rental  USING (customer_id)
-WHERE email = 'JOYCE.EDWARDS@sakilacustomer.org'; -- 49
-
-SELECT name
-FROM rental
-JOIN category ON (rental_id = category_id)
-WHERE customer_id = '49';
 
 
 -- 5. 이메일이 JOYCE.EDWARDS@sakilacustomer.org인 고객이 가장 최근에 빌린 영화 제목과 영화 내용을 조회 

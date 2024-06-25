@@ -44,11 +44,16 @@ SELECT TABLE_SCHEMA, TABLE_NAME, CONSTRAINT_NAME, CONSTRAINT_TYPE
 FROM information_schema.TABLE_CONSTRAINTS
 WHERE TABLE_SCHEMA = 'sample' AND TABLE_NAME = 'dept_copy';
 SELECT * FROM publisher;
+-- 테이블에 데이터를 추가시키는 구문 (DML : INSERT) 
+-- INSERT INTO 테이블명 VALUES(값, 값, ...);
 CREATE TABLE publisher(
 	pub_no INT AUTO_INCREMENT PRIMARY KEY,
     pub_name VARCHAR(20) NOT NULL,
     phone VARCHAR(20)
 );
+INSERT INTO publisher VALUES('프리렉', '032-326-7282');
+INSERT INTO publisher VALUES('인사이트', '02-322-5143');
+INSERT INTO publisher VALUES('길벗', '02-332-0931');
 -- 2. 도서들에 대한 데이터를 담기 위한 도서 테이블 (book)
 --    컬럼 : bk_no (도서번호) -- 기본 키
 --           bk_title (도서명) -- NOT NULL
@@ -58,12 +63,16 @@ CREATE TABLE publisher(
 --    조건 : 이때 참조하고 있는 부모 데이터 삭제 시 자식 데이터도 삭제 되도록 옵션 지정
 CREATE TABLE book(
 	bk_no INT AUTO_INCREMENT PRIMARY KEY,
-    bk_title VARCHAR(30) NOT NULL,
+    bk_title VARCHAR(50) NOT NULL,
     bk_author VARCHAR(20) NOT NULL,
     bk_price INT,
-    bk_pub_no INT
+    pub_no INT
 );
-
+INSERT INTO book VALUES('개발자를 위한 생각의 정리, 문서 작성법', '카이마이 미즈히로', '20000', 1);
+INSERT INTO book VALUES('1일 1로그 100일 완성 IT 지식', '브라이언 W. 커니핸', '200000', 2);
+INSERT INTO book VALUES('개발자가 영어도 잘해야 하나요?', '최희철', '27000', 3);
+INSERT INTO book VALUES('피플웨어', '톰 드마르코', '16800', 2);
+INSERT INTO book VALUES('그로스 해킹', '라이언 홀리데이', '13800', 3);
 -- 3. 회원에 대한 데이터를 담기 위한 회원 테이블 (member)
 --    컬럼 : member_no(회원번호) -- 기본 키
 --           member_id(아이디)   -- 중복 금지
@@ -76,15 +85,18 @@ CREATE TABLE book(
 --           enroll_date(가입일)  -- 기본값 현재날짜
 CREATE TABLE member(
 	member_no INT AUTO_INCREMENT PRIMARY KEY,
-    member_id VARCHAR(20) UNIQUE NOT NULL,
-    member_pwd VARCHAR(20) NOT NULL,
+    member_id VARCHAR(30) UNIQUE NOT NULL,
+    member_pwd VARCHAR(30) NOT NULL,
     member_name VARCHAR(20) NOT NULL,
-    gender VARCHAR(1)CHECK (gender IN ('M', 'F')),
-    address VARCHAR(60),
+    gender VARCHAR(1) CHECK(gender IN ('M', 'F')),
+    address VARCHAR(100),
     phone VARCHAR(20),
-    status VARCHAR(1)CHECK (status IN ('Y', 'N')) DEFAULT 'N',
+    status VARCHAR(1) CHECK(status IN ('Y', 'N')) DEFAULT 'N',
     enroll_date DATE DEFAULT (current_date())
 );
+INSERT INTO member VALUES('user01', 'pass01', '가나다', 'M', '서울시 강남구', '010-1111-2222');
+INSERT INTO member VALUES('user02', 'pass02', '라마바', 'M', '서울시 서초구', '010-3333-4444');
+INSERT INTO member VALUES('user03', 'pass03', '사아자', 'F', '경기도 광주시', '010-4444-5555');
 -- 4. 도서를 대여한 회원에 대한 데이터를 담기 위한 대여 목록 테이블(rent)
 --    컬럼 : rent_no(대여번호) -- 기본 키
 --           rent_mem_no(대여 회원번호) -- 외래 키(member와 참조)
@@ -95,7 +107,7 @@ CREATE TABLE rent(
 	rent_no INT AUTO_INCREMENT PRIMARY KEY,
     member_no INT,
     bk_no INT,
-    rent_date DATE DEFAULT (current_date())
+    rent_date DATE DEFAULT (current_date()) 
 );
 -- ALTER로 FOREIGN KEY만 관리
 SELECT * FROM rent;
@@ -105,13 +117,21 @@ SELECT * FROM member;
 
 -- 5. 2번 도서를 대여한 회원의 이름, 아이디, 대여일, 반납 예정일(대여일 + 7일)을 조회하시오.
 --  adddate(now(), interval 10 year)
-SELECT member_name, member_id, rent_date, adddate(rent_date, interval 7 day)
+SELECT 
+	member_name, 
+    member_id, 
+    rent_date, 
+    adddate(rent_date, INTERVAL 7 DAY)
 FROM rent
-JOIN member USING (member_no)
-WHERE bk_no = '2';
+	JOIN member USING (member_no)
+WHERE bk_no = 2;
 -- 6. 회원번호가 1번인 회원이 대여한 도서들의 도서명, 출판사명, 대여일, 반납예정일을 조회하시오.
-SELECT bk_title, pub_name, rent_date, adddate(rent_date, interval 7 day)
+SELECT 
+	bk_title,
+    pub_name,
+    rent_date,
+    adddate(rent_date, 7)
 FROM rent
-JOIN book USING (bk_no)
-JOIN publisher USING (pub_no)
-WHERE member_no = '1';
+	JOIN book USING (bk_no)
+    JOIN publisher USING (pub_no)
+WHERE member_no = 1;

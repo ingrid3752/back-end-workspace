@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 public class VariablePractice {
 	
+	Scanner sc = new Scanner(System.in);
+	
 	public static void main(String[] args) {
-		VariablePractice variable = new VariablePractice();
+		VariablePractice v = new VariablePractice();
 		
-		variable.method1();
-		variable.method2();
-		variable.method3();
-		variable.method4();
-		variable.method5();
-		variable.method6();
-		variable.method7();
+//		v.method1();
+//		v.method2();
+//		v.method3();
+//		v.method4();
+//		v.method5();
+//		v.method6();
+		v.method7();
 	}
-
-	private Scanner sc;
 	
 	/*
 	 * 영화관의 요금표는 다음과 같다.
@@ -26,13 +26,16 @@ public class VariablePractice {
 	 * 성인 2명과 청소년 3명이 영화를 보려고 할 때 지불해야 할 금액을 계산 후 출력하세요.
 	 * */
 	public void method1() {
-		int a = 10000;
-		int t = 7000;
-		int sum1 = (a * 2) + (t * 3);
+		int adultPrice = 10000;
+		int teenPrice = 7000;
+		int adultCount = 2;
+		int teenCount = 3;
 		
-		System.out.println(sum1);
+		int total = adultPrice * adultCount + teenPrice * teenCount;
 		
-		System.out.println("-------------------");
+//		System.out.println("총 지불해야 할 금액 : " + (adultPrice * adultCount + teenPrice * teenCount) + "원");
+		System.out.println("총 지불해야 할 금액 : " + total + "원");
+		
 	}
 	
 	/*
@@ -45,22 +48,33 @@ public class VariablePractice {
 	 * 로 출력하세요.
 	 * */
 	public void method2() {
-		int x = 5; // 7
-		int y = 7; // 9
-		int z = 9; // 5
-		int change = x; // change 변수에 x값 저장
-		x = y; // 저장한 x값을 y값으로 변환
-		y = z; // y값을 z값으로 변환 
-		z = change; // z값을 change 변수값에 저장 
+//		int x = 5; // 7
+//		int y = 7; // 9
+//		int z = 9; // 5
+//		int change = x; // change 변수에 x값 저장
+//		x = y; // x값을 y값으로 변환
+//		y = z; // y값을 z값으로 변환 
+//		z = change; // z값을 change 변수값에 저장 
 		
+//		System.out.println("x=" + x);
+//		System.out.println("y=" + y);
+//		System.out.println("z=" + z);
 		
 		// 코드 적어주세요!
+		int x = 5;
+		int y = 7;
+		int z = 9;
+		
+		int tmp = x;
+		x = y;
+		y = z;
+		z = tmp;
 		
 		System.out.println("x=" + x);
 		System.out.println("y=" + y);
 		System.out.println("z=" + z);
 		
-		System.out.println("-------------------");
+
 	}
 
 	/*
@@ -74,21 +88,32 @@ public class VariablePractice {
 	 * 나누기 몫 : 3
 	 * */
 	public void method3() {
-		int d1 = 23;
-		int d2 = 7;
+//		int d1 = 23;
+//		int d2 = 7;
+//		
+//		int sum2 = d1 + d2;
+//		int min1 = d1 - d2;
+//		int mul1 = d1 * d2;
+//		int div1 = d1 / d2;
+//		
+//		System.out.printf("더하기 : %d\n"
+//						+ "빼기 : %d\n"
+//						+ "곱하기 : %d\n"
+//						+ "나누기 : %d\n",sum2, min1, mul1, div1);
+		System.out.print("첫 번째 정수 : ");
+		int num1 = sc.nextInt();
+		System.out.print("두 번째 정수 : ");
+		int num2 = sc.nextInt();
 		
-		int sum2 = d1 + d2;
-		int min1 = d1 - d2;
-		int mul1 = d1 * d2;
-		int div1 = d1 / d2;
 		
-		System.out.printf("더하기 : %d\n"
-						+ "빼기 : %d\n"
-						+ "곱하기 : %d\n"
-						+ "나누기 : %d\n",sum2, min1, mul1, div1);
+		System.out.println("더하기 : " + (num1 + num2));
+		System.out.println("빼기 : " + (num1 - num2));
+		System.out.println("곱하기 : " + (num1 * num2));
+		System.out.println("나누기 몫 : " + (num1 / num2));
 		
-		System.out.println("-------------------");
+
 	}
+	
 
 	/*
 	 * 키보드로 가로, 세로 값을 입력 받아 사각형의 면적과 둘레를 계산하여 출력하세요.
@@ -101,14 +126,25 @@ public class VariablePractice {
 	 * 둘레 : 110.4 Round
 	 * */ 
 	public void method4() {
-		double width = 13.5;
-		double height = 41.7;
-		double area = width * height;
-		double round = (width + height) * 2;
+//		double width = 13.5;
+//		double height = 41.7;
+//		double area = width * height;
+//		double round = (width + height) * 2;
+//		
+//		System.out.printf("면적 : %.2f\n" + "둘레 : %.1f\n",area, round);
 		
-		System.out.printf("면적 : %.2f\n" + "둘레 : %.1f\n",area, round);
+		System.out.print("가로 : ");
+		float num1 = sc.nextFloat();
+		System.out.print("세로 : ");
+		float num2 = sc.nextFloat();
 		
-		System.out.println("-------------------");
+		double area = num1 * num2;
+		double size = (num1 + num2) * 2;
+		
+		System.out.printf("면적 : %.2f\n" ,area);
+		System.out.printf("둘레 : %.1f\n" ,size);
+		
+
 		
 		
 	}
@@ -122,7 +158,12 @@ public class VariablePractice {
 	 * 마지막 문자 : e
 	 * */
 	public void method5() {
+		System.out.print("문자열을 입력하세요 : ");
+		String word = sc.nextLine();
 		
+		System.out.println("첫번째 문자 : " + word.charAt(0));
+		System.out.println("두번째 문자 : " + word.charAt(1));
+		System.out.println("마지막 문자 : " + word.charAt(word.length()-1));
 	}
 
 	/*
@@ -133,7 +174,14 @@ public class VariablePractice {
 	 * B unicode : 66
 	 * */
 	public void method6() {
-
+		System.out.print("문자 : ");
+		char ch = sc.nextLine().charAt(0);
+		
+		int num = ch;
+		char ch2 = (char) (num + 1);
+		
+		System.out.println(ch + " unicode : " + num);
+		System.out.println(ch2 + " unicode : " + (int)ch2);
 	}
 	
 	/*
@@ -146,7 +194,17 @@ public class VariablePractice {
 	 * 평균 : 72.67
 	 * */
 	public void method7() {
-
+		System.out.print("국어 : ");
+		int kScore = sc.nextInt();
+		System.out.print("영어 : ");
+		int eScore = sc.nextInt();
+		System.out.print("수학 : ");
+		int mScore = sc.nextInt();
+		
+		int sum = kScore + eScore + mScore;
+		
+		System.out.println("총점 : " + sum);
+		System.out.printf("평균 : %.2f" ,((double)sum / 3));
 	}
 
 }

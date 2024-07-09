@@ -12,7 +12,7 @@ public abstract class Pizza {
 	
 	// 피자 만드는 과정
 	public void makePizza() {
-		System.out.println(this.brand + "의 불고기 피자 가격은" + price + "원");
+		info();
 		System.out.println("피자 반죽과 함께 도우를 빚다.");
 		topping();
 		System.out.println("피자를 180도에서 10분간 구운다.");
@@ -23,6 +23,8 @@ public abstract class Pizza {
 	
 	public abstract void info();
 	public abstract void topping();
+	
+	
 	
 	
 }

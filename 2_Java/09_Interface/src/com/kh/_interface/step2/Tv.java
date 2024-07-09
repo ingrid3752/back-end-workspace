@@ -2,11 +2,10 @@ package com.kh._interface.step2;
 
 public class Tv implements RemoteControl {
 
-private int volume;
-	
+	private int volume;
+
 	@Override
 	public void search(String url) {
-		
 		System.out.println(url + "을 검색합니다.");
 	}
 
@@ -14,7 +13,7 @@ private int volume;
 	public void setVolume(int volume) {
 		if(volume > RemoteControl.MAX_VOLUME) {
 			this.volume = RemoteControl.MAX_VOLUME;
-		} else if (volume < RemoteControl.MIN_VOLUME) {
+		} else if(volume < RemoteControl.MIN_VOLUME) {
 			this.volume = RemoteControl.MIN_VOLUME;
 		} else {
 			this.volume = volume;

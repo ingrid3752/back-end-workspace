@@ -15,15 +15,15 @@ import com.kh._interface.step2.Tv;
  * - 인터페이스에서 변수는 무조건 상수이다.
  * - 인터페이스에서 메서드는 무조건 추상메서드이다.
  * - 객체가 구현해야 하는 기능이 있을 때 인터페이스에 추상 메서드를 추가해서
- *   객체가 기능을 구현하도록 만들 수 있다.
+ *   객체가 기능을 구현하도록 만들 수 있다.  
  * - 인터페이스를 구현하려면 implements 키워드를 사용한다.
  * - 인터페이스는 다중 상속(구현)을 허용한다.
- * - 추상 클래스보다 더 강한 규칙성, 강제성을 가진 것이 인터페이스다.
+ * - 추상 클래스보다 더 강한 규칙성, 강제성을 가진 것이 인터페이스다. 
  * 
  * 추상클래스와 인터페이스
  * 공통점
  * - 객체 생성은 안 되나, 참조 변수로는 사용이 가능하다 (즉, 다형성 적용)
- * - 상속하는 클래스에서 추상 메서드를 재정의하도록 강제한다.
+ * - 상속(구현)하는 클래스에서 추상 메서드를 재정의하도록 강제한다.
  * 
  * 차이점
  * - 추상클래스는 abstract 키워드로 클래스가 정의되어 있고 클래스 내에 변수, 메서드 생성 가능
@@ -38,8 +38,8 @@ import com.kh._interface.step2.Tv;
 public class Application {
 
 	public static void main(String[] args) {
-
-		// Vehicle v = new Vehicle(); -> 인터페이스 객체 생성 X
+		
+//		Vehicle v = new Vehicle(); -> 인터페이스 객체 생성 X
 		Vehicle bus = new Bus();
 		Vehicle taxi = new Taxi();
 		
@@ -58,11 +58,12 @@ public class Application {
 		audio.search("melon.com");
 		audio.setVolume(30);
 		audio.turnOff();
-	}
 
+	}
 	
 	/*
 	 * 추상 클래스 : 미완성 설계도, 인터페이스 : 기본 설계도
-	 * 개발방법론 : 예전 - 폭포수 vs 요즘 - 애자일 
+	 * 개발방법론 : 예전 - 폭포수 vs 요즘 - 애자일
 	 * */
+
 }

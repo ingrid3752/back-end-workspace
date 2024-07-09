@@ -4,12 +4,11 @@ public class PineApplePizza extends Pizza {
 
 	public PineApplePizza(int price, String brand) {
 		super(price, brand);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void info() {
-		System.out.println(this.brand + "의 파인애플 피자 가격은" + price + "원");
+		System.out.println(brand + "의 파인애플 피자 가격은 " + price + "원");
 	}
 
 	@Override

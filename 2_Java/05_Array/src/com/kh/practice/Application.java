@@ -87,10 +87,10 @@ public class Application {
 			System.out.println("****** 첫 위치에 곡 추가 ******");
 			System.out.println("곡 명 : ");
 			String songName = sc.nextLine();
-			list.add(0, new Music(sc.nextLine()));
+//			list.add(0, new Music(sc.nextLine()));
 			System.out.println("가수 명 : ");
 			String name = sc.nextLine();
-			list.add(0, new Music(sc.nextLine()));
+//			list.add(0, new Music(sc.nextLine()));
 			System.out.print("마지막에 추가된 곡 명 : "+ list);
 		}
 		public void printMusic() {

@@ -20,7 +20,7 @@ public class FileTest {
 		System.out.println("파일 존재 여부 : " + file.exists());
 		System.out.println("디렉터리 여부 : " + file.isDirectory());
 		
-		// 만약 존재하지 않는 경로를 제시하면 IOException 발생 
+		// 만약 존재하지 않는 경로를 제시하면 IOException 발생
 		File newFile = new File("src/temp/test.txt");
 		try {
 			// 존재하지 않는 폴더부터 만든다
@@ -28,7 +28,7 @@ public class FileTest {
 			if(!tempDir.isDirectory()) {
 				tempDir.mkdir();
 			}
-			if(newFile.exists()) {
+			if(!newFile.exists()) {
 				newFile.createNewFile();
 			}
 		} catch (IOException e) {

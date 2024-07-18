@@ -9,7 +9,7 @@ SELECT * FROM person;
 
 CREATE TABLE member(
 	id VARCHAR(20) PRIMARY KEY,
-    pwd VARCHAR(20),
+    password VARCHAR(20),
     name VARCHAR(20)
     );
 

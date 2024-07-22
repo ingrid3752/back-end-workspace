@@ -123,7 +123,7 @@ CREATE TABLE rent(
 );
 -- ALTER로 FOREIGN KEY만 관리
 ALTER TABLE rent ADD CONSTRAINT member_no_fk
-	FOREIGN KEY(rent_mem_no) REFERENCES member(member_no) ON DELETE SET NULL;
+	FOREIGN KEY(rent_mem_no) REFERENCES member(member_no) ON DELETE CASCADE;
 ALTER TABLE rent ADD CONSTRAINT book_no_fk
 	FOREIGN KEY(rent_book_no) REFERENCES book(bk_no) ON DELETE SET NULL;
 
@@ -134,6 +134,10 @@ INSERT INTO rent(rent_mem_no, rent_book_no) VALUES(2, 2);
 INSERT INTO rent(rent_mem_no, rent_book_no) VALUES(1, 5);
 
 SELECT * FROM rent;
+SELECT * FROM rent WHERE rent_mem_no = ?;
+SELECT * FROM book;
+SELECT * FROM rent JOIN book ON (rent_book_no = bk_no);
+SELECT * FROM member;
 
 SELECT * FROM publisher;
 SELECT * FROM book;

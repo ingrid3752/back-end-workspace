@@ -29,4 +29,14 @@
     <servlet-name>WordServlet</servlet-name>
     <url-pattern>/WordServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FormServlet</display-name>
+    <servlet-name>FormServlet</servlet-name>
+    <servlet-class>servlet.http.FormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FormServlet</servlet-name>
+    <url-pattern>/generic</url-pattern>
+  </servlet-mapping>
 </web-app>

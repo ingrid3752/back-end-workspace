@@ -1,17 +1,16 @@
-package com.kh.model.dao;
+package model.dao;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import com.kh.model.vo.Member;
+import model.vo.Member;
 
 public class MemberDAO {
-
+	
 	public MemberDAO() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -34,24 +33,24 @@ public class MemberDAO {
 		close(ps, conn);
 	}
 	
-	// 회원가입 - member 스키마의 member 테이블
-	public void registerMember(String id, String pwd, String name) throws SQLException {
+	// DAO 개발할 때 중요한 건
+	// 매개변수 (파라미터) 뭘 가지고 와야 되는지, 리턴타입 결과 출력이 어떤게 필요한지 
+	
+	// 회원가입
+	public void register(String id, String password, String name) throws SQLException {
 		Connection conn = connect();
 		
 		String query = "INSERT INTO member VALUES(?, ?, ?)";
 		PreparedStatement ps = conn.prepareStatement(query);
 		
 		ps.setString(1, id);
-		ps.setString(2, pwd);
+		ps.setString(2, password);
 		ps.setString(3, name);
 		
 		ps.executeUpdate();
-		
 		close(ps, conn);
-		
 	}
 	
-	// 전체 회원 보기
 	public ArrayList<Member> showAllMember() throws SQLException {
 		Connection conn = connect();
 		

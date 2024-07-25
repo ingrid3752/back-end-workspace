@@ -21,12 +21,21 @@ public class LoginServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
 		
-		Member member = new Member(id, password, "테스트");
+		MemberDAO dao = new MemberDAO();
 		
-		HttpSession session = request.getSession();
+		try {
+			Member member = dao.login(id, password);
+			
+			// 바인딩 - Session
+			HttpSession session = request.getSession();
+			session.setAttribute("member", member);
+			
+			response.sendRedirect("/index.jsp");
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
-		session.setAttribute("info", member);
-		response.sendRedirect("index.jsp");
 		
 	}
 

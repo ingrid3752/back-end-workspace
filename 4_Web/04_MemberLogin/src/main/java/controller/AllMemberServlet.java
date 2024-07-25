@@ -10,26 +10,22 @@ import model.vo.Member;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
-@WebServlet("/register")
-public class RegisterServlet extends HttpServlet {
+@WebServlet("/allMember")
+public class AllMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		String id = request.getParameter("id");
-		String password = request.getParameter("password");
-		String name = request.getParameter("name");
-		
 		MemberDAO dao = new MemberDAO();
-		
 		try {
-			dao.register(id, password, name);
+			List<Member> list = dao.all();
+			
+			request.setAttribute("list", list);
+			request.getRequestDispatcher("/views/allMember.jsp").forward(request, response);
 		} catch (SQLException e) {
-			//e.printStackTrace();
+			e.printStackTrace();
 		}
-		
-		response.sendRedirect("index.jsp");
 	}
 
 }

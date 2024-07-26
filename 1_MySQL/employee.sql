@@ -15,3 +15,4 @@ CREATE TABLE member(
 
 DROP TABLE member;
 SELECT * FROM member;
+SELECT * FROM employee;

@@ -1,28 +1,18 @@
-DROP TABLE mem_info;
-DROP TABLE pmt_amt;
-DROP TABLE stadium;
-DROP TABLE stadium_res;
-DROP TABLE theme_park;
-DROP TABLE theme_park_res;
-DROP TABLE goods;
-DROP TABLE rest;
-DROP TABLE rest_res;
-DROP TABLE rest_class;
-DROP TABLE review;
-DROP TABLE question_table;
-DROP TABLE accom;
-DROP TABLE accom_res;
-DROP TABLE accom_class;
--- SET foreign_key_checks = 1;
-
--- 약어 대체 및 단어 대체
--- 회원 member -> mem
--- 회원정보 memberinformation -> mem_info
--- 지불금액 payment_amount -> pmt_amt
--- 예약 reservation -> res
--- 분류 classification -> class
--- 식당 restaurant -> rest
--- 숙소 lodging - accommodation -> accom
+DROP TABLE IF EXISTS mem_info;
+DROP TABLE IF EXISTS pmt_amt;
+DROP TABLE IF EXISTS stadium;
+DROP TABLE IF EXISTS stadium_res;
+DROP TABLE IF EXISTS theme_park;
+DROP TABLE IF EXISTS theme_park_res;
+DROP TABLE IF EXISTS goods;
+DROP TABLE IF EXISTS rest;
+DROP TABLE IF EXISTS rest_res;
+DROP TABLE IF EXISTS rest_class;
+DROP TABLE IF EXISTS review;
+DROP TABLE IF EXISTS question_table;
+DROP TABLE IF EXISTS accom;
+DROP TABLE IF EXISTS accom_res;
+DROP TABLE IF EXISTS accom_class;
 
 -- 회원 정보
 CREATE TABLE mem_info (
@@ -30,7 +20,7 @@ CREATE TABLE mem_info (
     id VARCHAR(50),
     password VARCHAR(50),
     name VARCHAR(50),
-    phone VARCHAR(50)
+    phone VARCHAR(15)
 );
 
 -- 지불금액
@@ -45,6 +35,18 @@ CREATE TABLE pmt_amt (
     FOREIGN KEY (mem_code) REFERENCES mem_info (mem_code)
 );
 
+-- 식당분류
+CREATE TABLE rest_class (
+    rest_class_code INT PRIMARY KEY AUTO_INCREMENT,
+    rest_sector VARCHAR(30)
+);
+
+-- 숙소분류
+CREATE TABLE accom_class (
+    accom_class_code INT PRIMARY KEY AUTO_INCREMENT,
+    class_name VARCHAR(70)
+);
+
 -- 경기장
 CREATE TABLE stadium (
     stadium_code INT PRIMARY KEY AUTO_INCREMENT,
@@ -52,7 +54,6 @@ CREATE TABLE stadium (
     game VARCHAR(20),
     game_skd TEXT
 );
-SELECT  * FROM stadium;
 
 -- 경기장예약
 CREATE TABLE stadium_res (
@@ -67,7 +68,6 @@ CREATE TABLE stadium_res (
     FOREIGN KEY (mem_code) REFERENCES mem_info (mem_code),
     FOREIGN KEY (pmt_amt_code) REFERENCES pmt_amt (pmt_amt_code)
 );
-SELECT * FROM stadium_res;
 
 -- 관광지
 CREATE TABLE theme_park (
@@ -123,12 +123,6 @@ CREATE TABLE rest_res (
     FOREIGN KEY (mem_code) REFERENCES mem_info (mem_code)
 );
 
--- 식당분류
-CREATE TABLE rest_class (
-    rest_class_code INT PRIMARY KEY AUTO_INCREMENT,
-    rest_sector VARCHAR(30)
-);
-
 -- 리뷰 (평점)
 CREATE TABLE review (
     review_code INT PRIMARY KEY AUTO_INCREMENT,
@@ -152,7 +146,7 @@ CREATE TABLE question_table (
 -- 숙소
 CREATE TABLE accom (
     accom_code INT PRIMARY KEY AUTO_INCREMENT,
-    phone VARCHAR(50),
+    phone VARCHAR(15),
     location VARCHAR(70),
     price INT,
     name_of_accom VARCHAR(70),
@@ -171,13 +165,7 @@ CREATE TABLE accom_res (
     pmt_amt_code INT,
     accom_code INT,
     mem_code INT,
-    FOREIGN KEY (pmt_amt_code) REFERENCES pmt_amt (pment_amt_code),
-    FOREIGN KEY (accom_code) REFERENCES accom (acccom_code),
+    FOREIGN KEY (pmt_amt_code) REFERENCES pmt_amt (pmt_amt_code),
+    FOREIGN KEY (accom_code) REFERENCES accom (accom_code),
     FOREIGN KEY (mem_code) REFERENCES mem_info (mem_code)
-);
-
--- 숙소분류
-CREATE TABLE accom_class (
-    accom_class_code INT PRIMARY KEY AUTO_INCREMENT,
-    class_name VARCHAR(70)
 );

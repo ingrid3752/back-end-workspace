@@ -21,23 +21,25 @@ public class MemberController {
 
 	@Autowired
 	private MemberService service;
-
-	@GetMapping("register")
-	public void register() {
+	
+	@GetMapping("/")
+	public String index() {
+		return "index";
 	}
+	
+	@GetMapping("register")
+	public void register() {}
 
 	@PostMapping("register")
 	public String register(Member vo) {
 		try {
 			service.register(vo);
-		} catch (SQLException e) {
-		}
+		} catch (SQLException e) {}
 		return "redirect:/";
 	}
 
 	@GetMapping("login")
-	public void login() {
-	}
+	public void login() {}
 
 	@PostMapping("login")
 	public String login(Member vo, HttpServletRequest request) {

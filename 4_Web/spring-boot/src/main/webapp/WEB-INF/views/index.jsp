@@ -14,19 +14,8 @@
 	<ul>
 		<c:choose>
 			<c:when test="${empty member}">
-			<!-- 로그인 되어 있지 않은 경우 -->
-			<li><a href="/register">회원가입</a></li>
-			<!-- 회원가입 : 아이디, 비밀번호, 이름 입력 받아서
-						  호출 : /register, 방식 : post
-						  RegisterServlet
-						  index.jsp로 이동
-			 -->
-			<li><a href="/login">로그인</a></li>
-			<!-- 로그인 : 아이디, 비밀번호 입력 받아서
-						 호출 : /login, 방식 : post
-						 LoginServlet : 세션 데이터 바인딩!
-						 index.jsp로 이동
-			 -->
+				<li><a href="/register">회원가입</a></li>
+				<li><a href="/login">로그인</a></li>
 			</c:when>
 			<c:otherwise>
 			<!-- 로그인 된 경우 -->

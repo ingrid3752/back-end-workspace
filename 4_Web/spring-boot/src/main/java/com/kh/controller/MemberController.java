@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MemberController {
-
+	
 	@Autowired
 	private MemberService service;
 	
@@ -27,9 +27,9 @@ public class MemberController {
 		return "index";
 	}
 	
-	@GetMapping("register")
+	@GetMapping("register") 
 	public void register() {}
-
+	
 	@PostMapping("register")
 	public String register(Member vo) {
 		try {
@@ -37,10 +37,10 @@ public class MemberController {
 		} catch (SQLException e) {}
 		return "redirect:/";
 	}
-
+	
 	@GetMapping("login")
 	public void login() {}
-
+	
 	@PostMapping("login")
 	public String login(Member vo, HttpServletRequest request) {
 		try {
@@ -56,7 +56,7 @@ public class MemberController {
 	public void search() {}
 	
 	@GetMapping("find")
-	public String find(@RequestParam("id")String id, Model model) {
+	public String find(@RequestParam("id") String id, Model model) {
 
 		try {
 			Member member = service.search(id);
@@ -65,8 +65,8 @@ public class MemberController {
 				model.addAttribute("member", member);
 				return "search_ok";
 			} 
-			
-		} catch (SQLException e) {}
+
+		} catch(Exception e) {}
 		
 		return "redirect:/fail";
 		
@@ -79,10 +79,12 @@ public class MemberController {
 	
 	@GetMapping("allMember")
 	public String allMember(Model model) {
+		
 		try {
 			
 			List<Member> list = service.allMember();
 			model.addAttribute("list", list);
+			
 		} catch(Exception e) {}
 		
 		return "allMember";
@@ -96,8 +98,14 @@ public class MemberController {
 		if(member!=null) {
 			session.invalidate();
 		}
-		
+
 		return "redirect:/";
 	}
+	
+	
+	
+	
+	
+	
 	
 }

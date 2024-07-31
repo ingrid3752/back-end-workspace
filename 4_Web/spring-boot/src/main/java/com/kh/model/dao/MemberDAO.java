@@ -1,7 +1,6 @@
 package com.kh.model.dao;
 
 import java.sql.Connection;
-
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -11,7 +10,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Repository;
 
-import com.kh.model.vo.*;
+import com.kh.model.vo.Member;
 
 @Repository
 public class MemberDAO {

@@ -11,11 +11,12 @@ import mapper.VideoMapper;
 
 @Service
 public class VideoService {
-	
+
 	@Autowired
 	private VideoMapper video;
 	
 	public List<Video> allVideo() {
 		return video.allVideo();
 	}
+	
 }

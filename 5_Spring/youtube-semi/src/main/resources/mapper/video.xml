@@ -1,6 +1,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.VideoMapper">
-	
+
 	<resultMap id="videoMap" type="Video">
 		<id column="video_code" property="videoCode"/>
 		<result column="video_url" property="videoUrl"/>
@@ -13,11 +13,12 @@
 			<id column="channel_code" property="channelCode"/>
 			<result column="channel_img" property="channelImg"/>
 			<result column="channel_name" property="channelName"/>
-			</association>
+			<result column="id" property="id"/>
+		</association>
 	</resultMap>
-	
+
 	<select id="allVideo" resultMap="videoMap">
-		SELECT * FROM video
+		SELECT * FROM video 
 		JOIN channel USING (channel_code)
 	</select>
 

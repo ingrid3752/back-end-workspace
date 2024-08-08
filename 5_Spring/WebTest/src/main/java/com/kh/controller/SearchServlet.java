@@ -25,8 +25,10 @@ public class SearchServlet extends HttpServlet {
 			
 			
 			if(employee!=null) {
-				request.setAttribute("employee", employee); //원인 : setAttribute가 아닌 getAttribute = setAttribute("employee",employee);
-				request.getRequestDispatcher("views/search.jsp").forward(request, response); //원인 : getRequestDispatcher 뒤에 어떤 형식으로 보낼지 미기입
+				//원인 : setAttribute가 아닌 getAttribute = setAttribute("employee",employee);
+				request.setAttribute("employee", employee); 
+				//원인 : getRequestDispatcher 뒤에 어떤 형식으로 보낼지 미기입
+				request.getRequestDispatcher("views/search.jsp").forward(request, response); 
 			} else {
 				response.sendRedirect("views/fail.jsp");
 			}

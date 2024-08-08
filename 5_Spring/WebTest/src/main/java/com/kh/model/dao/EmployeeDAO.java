@@ -42,7 +42,7 @@ public class EmployeeDAO {
 			employee = new Employee(id, rs.getString("emp_name"), 
 					rs.getString("email"), rs.getString("phone")); //원인 : 생성자 미기입
 		}
-		
+
 		close(rs, ps, conn);
 		
 		return employee;

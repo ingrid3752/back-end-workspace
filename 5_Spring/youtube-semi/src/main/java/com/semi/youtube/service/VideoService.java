@@ -22,4 +22,5 @@ public class VideoService {
 	public Video detail(int videoCode) {
 		return video.detail(videoCode);
 	}
+	
 }

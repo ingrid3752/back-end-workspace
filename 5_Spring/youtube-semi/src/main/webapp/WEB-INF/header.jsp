@@ -1,26 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-<link
-      rel="icon"
-      href="https://www.youtube.com/s/desktop/ae4ecf92/img/favicon_144x144.png"
+  <head>
+    <meta charset="UTF-8" />
+    <title>Insert title here</title>
+    <link
+      rel="stylesheet"
+      href="${pageContext.request.contextPath}/css/reset.css"
     />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/reset.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="${pageContext.request.contextPath}/css/style.css"
+    />
     <script
       src="https://kit.fontawesome.com/ef885bd654.js"
       crossorigin="anonymous"
     ></script>
-</head>
-<body>
-<header>
+  </head>
+  <body>
+    <header>
       <div class="header-start">
         <i class="fa-solid fa-bars"></i>
-        <a href="">
+        <a href="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             id="yt-logo-updated-svg_yt1"
@@ -91,5 +93,5 @@
         </button>
       </div>
     </header>
-</body>
+  </body>
 </html>

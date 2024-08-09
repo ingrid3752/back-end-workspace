@@ -88,8 +88,9 @@ pageEncoding="UTF-8"%>
         </button>
       </div>
       <div class="header-end">
-        <button type="button">
-          <i class="fa-solid fa-user"></i>
+        <button type="button" onclick="location.href='/login'">
+          <!-- <i class="fa-solid fa-user"></i> -->
+          로그인
         </button>
       </div>
     </header>

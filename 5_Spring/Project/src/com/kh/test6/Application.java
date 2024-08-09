@@ -5,9 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.mysql.cj.protocol.Resultset;
-import com.mysql.cj.xdevapi.Result;
-
 public class Application {
 
 	public static void main(String[] args) {
@@ -78,9 +75,95 @@ public class Application {
 //			e.printStackTrace();
 //		}
 		
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kh","root","qwer1234");
+//			
+//			String query = "SELECT * FROM employee";
+//			PreparedStatement st = conn.prepareStatement(query);
+//			
+//			ResultSet rs = st.executeQuery();
+//			
+//			while(rs.next()) {
+//				System.out.println(rs.getString("emp_id") + " / " + rs.getString("emp_name"));
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kh","root","qwer1234");
+//			
+//			String query = "SELECT * FROM employee";
+//			PreparedStatement st = conn.prepareStatement(query);
+//			
+//			ResultSet rs = st.executeQuery();
+//			
+//			while(rs.next()) {
+//				System.out.println(rs.getString("emp_id") + " / " + rs.getString("emp_name"));
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/kh","root","qwer1234");
+//			
+//			String query = "SELECT * FROM employee";
+//			PreparedStatement st = conn.prepareStatement(query);
+//			
+//			ResultSet rs = st.executeQuery();
+//			
+//			while(rs.next()) {
+//				System.out.println(rs.getString("emp_id" + " / " + rs.getString("emp_name")));
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kh", "root","qwer1234");
+//			
+//			String query = "SELECT * FROM employee";
+//			PreparedStatement st = conn.prepareStatement(query);
+//			
+//			ResultSet rs = st.executeQuery();
+//			
+//			while(rs.next()) {
+//				System.out.println(rs.getString("emp_id") + " / " + rs.getString("emp_name"));
+//			}
+//			
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/kh","root","qwer1234");
+//			
+//			String query = "SELECT * FROM employee";
+//			PreparedStatement st = conn.prepareStatement(query);
+//			
+//			ResultSet rs = st.executeQuery();
+//			
+//			while(rs.next()) {
+//				System.out.println(rs.getString("emp_id") + " / " + rs.getString("emp_name"));
+//			}
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/kh","root","qwer1234");
+			Connection conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/kh","root","qwer1234");
 			
 			String query = "SELECT * FROM employee";
 			PreparedStatement st = conn.prepareStatement(query);
@@ -94,6 +177,44 @@ public class Application {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }

@@ -2,6 +2,7 @@ package mapper;
 
 import org.apache.ibatis.annotations.Mapper;
 
+
 import com.semi.youtube.model.vo.Member;
 
 @Mapper

@@ -2,16 +2,17 @@
 <mapper namespace="mapper.VideoLikeMapper">
 
 	<resultMap id="likeMap" type="VideoLike">
-		<id property="likeCode" column="like_code" />
+		<id property="likeCode" column="like_code"/>
+		<result property="id" column="id"/>
 		<result property="videoCode" column="video_code"/>
 	</resultMap>
 
 	<insert id="like" parameterType="VideoLike" useGeneratedKeys="true" keyProperty="likeCode">
 		INSERT INTO video_like(id, video_code) VALUES (#{id}, #{videoCode})
 	</insert>
-
+	
 	<select id="check" parameterType="VideoLike" resultMap="likeMap">
-		SELECT * FROM video_like
+		SELECT * FROM video_like 
 		WHERE id = #{id} AND video_code = #{videoCode}
 	</select>
 	
@@ -20,3 +21,10 @@
 	</delete>
 
 </mapper>
+
+
+
+
+
+
+

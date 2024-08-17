@@ -1,14 +1,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.SubscribeMapper">
 
-	<resultMap type="Subscribe" id="subsMap">
+	<resultMap id="subsMap" type="Subscribe">
 		<id property="subCode" column="sub_code"/>
 		<result property="id" column="id"/>
 		<result property="channelCode" column="channel_code"/>
 	</resultMap>
 
 	<select id="check" parameterType="Subscribe" resultMap="subsMap">
-		SELECT * FROM subscribe
+		SELECT * FROM subscribe 
 		WHERE id = #{id} AND channel_code = #{channelCode}
 	</select>
 	
@@ -18,12 +18,17 @@
 	</select>
 	
 	<insert id="subs" parameterType="Subscribe" useGeneratedKeys="true" keyProperty="subCode">
-		INSERT INTO subscribe(id, channel_code) 
+		INSERT INTO subscribe(id, channel_code)
 		VALUES(#{id}, #{channelCode})
 	</insert>
 	
 	<delete id="cancel" parameterType="Integer">
-		DELETE FROM subscribe 
+		DELETE FROM subscribe
 		WHERE sub_code = #{code}
 	</delete>
 </mapper>
+
+
+
+
+

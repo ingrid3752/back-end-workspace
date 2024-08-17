@@ -22,7 +22,7 @@ public class VideoService {
 	@Autowired
 	private VideoLikeMapper like;
 	
-	@Autowired
+	@Autowired 
 	private SubscribeMapper sub;
 	
 	public List<Video> allVideo() {
@@ -48,13 +48,24 @@ public class VideoService {
 	public Subscribe check(Subscribe vo) {
 		return sub.check(vo);
 	}
+	
 	public int count(int code) {
 		return sub.count(code);
 	}
+	
 	public void subs(Subscribe vo) {
 		sub.subs(vo);
 	}
+	
 	public void cancel(int code) {
 		sub.cancel(code);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

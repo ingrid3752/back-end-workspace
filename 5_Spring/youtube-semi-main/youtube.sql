@@ -65,9 +65,6 @@ CREATE TABLE video_like(
     FOREIGN KEY (video_code) REFERENCES video(video_code)
 );
 
-INSERT INTO member(id, password, email, phone)
-VALUES('akmu', '1234', 'akmu@gmail.com', '010-0000-0000');
-
 SELECT * FROM member;
 
 INSERT INTO channel(channel_img, channel_name, id)

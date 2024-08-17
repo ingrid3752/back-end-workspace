@@ -8,9 +8,8 @@
 <title>YouTube</title>
 <link rel="icon"
 	href="https://www.youtube.com/s/desktop/ae4ecf92/img/favicon_144x144.png" />
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/detail.css"/>
-
 </head>
 <body>
 	<jsp:include page="header.jsp"/>
@@ -83,7 +82,7 @@
 			url: "/unlike",
 			data: {
 				code: ${like.likeCode}
-			},
+			}, 
 			success: function() {
 				location.reload();
 			}

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.kh.security.model.vo.Member;
 
+import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
@@ -33,33 +34,17 @@ public class TokenProvider {
 				.compact();
 	}
 	
+	public Member validate(String token) {
+		Claims claims = Jwts
+							.parser()
+							.setSigningKey(secretKey)
+							.parseClaimsJws(token)
+							.getBody();
+		return Member.builder()
+				.id((String) claims.get("id"))
+				.name((String) claims.get("name"))
+				.role((String) claims.get("role"))
+				.build();
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

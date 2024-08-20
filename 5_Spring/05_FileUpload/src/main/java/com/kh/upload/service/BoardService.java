@@ -37,6 +37,10 @@ public class BoardService {
 		return mapper.selectAll(paging);
 	}
 	
+	public int total() {
+		return mapper.total();
+	}
+	
 	public Board select(int no) {
 		return mapper.select(no);
 	}

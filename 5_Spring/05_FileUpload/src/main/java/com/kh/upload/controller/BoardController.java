@@ -1,6 +1,7 @@
 package com.kh.upload.controller;
 
 import java.io.File;
+
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -24,10 +25,60 @@ public class BoardController {
 	@Autowired
 	private BoardService service;
 	
+	// index페이지로 이동
 	@GetMapping("/")
 	public String index() {
 		return "index";
 	}
+	
+	/*
+	 * @GetMapping?
+	 * - URL에 데이터를 포함시켜 요청
+	 * - 데이터를 헤더에 포함하여 전송
+	 * - URL에 데이터가 노출되어 보안에 취약
+	 * 
+	 * => 주로 조회할때만 사용
+	 * 
+	 * @PostMapping?
+	 * - URL에 데이터를 노출하지않고 요청
+	 * - 데이터를 바디에 포함
+	 * - URL에 데이터가 노출되지않아 GET방식보다 보안이 높음
+	 * 
+	 * => 주로 노출되면 안되는 데이터를 저장할 때 사용
+	 * 
+	 * * 언제 사용하는가?
+	 * @GetMapping 
+	 * 
+	 * - HTTP Get Method에 해당하는 표현으로 서버의 리소스를 조회할 때 사용
+	 * 
+	 * @PostMapping 
+	 * 
+	 * - HTTP Post Method에 해당하는 표현으로 서버에 리소스를 등록(저장)할 때 사용
+	 * 
+	 * ex) @GetMapping("/new")
+	 * 	   public String New() {
+	 * 		  return "/Login/회원가입";
+	 * 		}
+	 * = 회원가입페이지에서 Login리소스를 조회(GetMapping)함
+	 * 
+	 * 	  @PostMapping("/new")
+	 *    public String create(MemberForm form) {
+	 *    	Member member = new Member();
+	 *      member.setName(form.getName());
+	 *      member.setPhoneNumber(form.getPhoneNumber());
+	 *      
+	 *      memberService.join(member);
+	 *      
+	 *      return "redirect:/";
+	 *    }
+	 * = 회원가입페이지의 form에서 name과 phoneNumber를 사용자에게 입력받아서 
+	 *   /new라는 url로 post방식으로 보이지않게보내고, MemberForm vo객체에서
+	 *   (private String name; private String phoneNumber;)담아서,
+	 *   회원가입 페이지에서 받은 이름,휴대폰 번호를 MemberForm 객체에 저장하고,
+	 *   memberService의 join함수를 통해서 데이터를 저장하고,
+	 *   join()이 완료되면 홈화면으로(redirect:/)이동한다.
+	 *   
+	 * */
 	
 	public String fileUpload(MultipartFile file) throws IllegalStateException, IOException {
 		// 중복 방지를 위한 UUID 적용
@@ -38,6 +89,10 @@ public class BoardController {
 		return fileName;
 	}
 	
+	/*
+	 * PostMapping방식으로 /upload url로 보내고,vo의 MultipartFile을 file로 지정,
+	 * fileUpload(file)로 담아내어 index페이지로 return
+	 * */
 	@PostMapping("/upload")
 	public String upload(MultipartFile file) throws IllegalStateException, IOException {
 		System.out.println("upload!");
@@ -48,6 +103,12 @@ public class BoardController {
 		return "redirect:/";
 	}
 	
+	/*
+	 * PostMapping으로 URL에 보이지않게 /multiUpload url로 보내고,
+	 * List<MultipartFile> files
+	 * 향상된 for문으로 반복하여 file을 출력
+	 * index페이지로 return
+	 * */
 	@PostMapping("/multiUpload")
 	public String multiUpload(List<MultipartFile> files) throws IllegalStateException, IOException {
 		
@@ -71,6 +132,7 @@ public class BoardController {
 		return "list";
 	}
 	
+	// write 페이지로 이동
 	@GetMapping("/write")
 	public String write() {
 		return "write";
@@ -86,7 +148,12 @@ public class BoardController {
 		System.out.println(vo);
 		return "redirect:/view?no=" + vo.getNo();
 	}
-	
+
+	/*
+	 * GetMapping으로 view페이지 조회 board객체의 no, 
+	 * 스프링의 Model을 import하여 service의
+	 * select함수호출하고 /WEB-INF/view.jsp를 return
+	 * */ 
 	@GetMapping("/view")
 	public String view(int no, Model model) {
 		model.addAttribute("board", service.select(no));

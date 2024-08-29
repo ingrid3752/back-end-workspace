@@ -4,7 +4,7 @@
 		SELECT * FROM member WHERE id = #{id}
 	</select>
 	
-	<insert id="signup" parameterType="Member">
+	<insert id="signUp" parameterType="Member">
 		INSERT INTO member VALUES(#{id}, #{password}, #{email}, #{phone})
 	</insert>
 </mapper>

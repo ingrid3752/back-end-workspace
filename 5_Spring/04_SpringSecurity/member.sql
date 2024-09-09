@@ -5,6 +5,7 @@ CREATE TABLE member(
     name VARCHAR(20),
     role VARCHAR(20)
 );
+INSERT INTO member(id, password, name) VALUES ('test1234','12341234','user1234');
 SELECT * FROM member;
 CREATE TABLE board(
 	no INT PRIMARY KEY AUTO_INCREMENT,

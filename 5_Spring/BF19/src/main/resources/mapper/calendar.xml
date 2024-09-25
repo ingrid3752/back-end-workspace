@@ -1,0 +1,29 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.CalendarMapper">
+    
+    <!-- 예약 목록 조회 -->
+	<select id="ReservationList" resultType="CalendarReservation">
+   		SELECT 
+   		r.accom_name AS accomName, 
+   		r.start_date AS startDate, 
+   		r.end_date AS endDate, 
+   		r.seats AS seats,
+   		m.mem_code AS memCode
+		FROM accom_reservation r
+		JOIN mem_info m ON r.mem_code = m.mem_code
+	</select>
+	
+	<!-- 숙소 예약 추가 -->
+    <insert id="insertReservation" parameterType="CalendarReservation">
+		INSERT INTO accom_reservation (mem_code, accom_code, accom_name, start_date, end_date, seats)
+		VALUES (#{memCode},#{accomCode},#{accomName},#{startDate},#{endDate},#{seats})
+	</insert>
+
+
+    <!-- 예약 내역 삭제 -->
+    <delete id="deleteReservation" parameterType="int">
+   		DELETE FROM accom_reservation
+    	WHERE reservation_id = #{reservationId}
+	</delete>
+	 
+</mapper>

@@ -1,4 +1,5 @@
-package com.kh.upload.controller;
+package com.kh.project.controller;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -8,10 +9,7 @@ import java.util.List;
 import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,19 +18,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import com.kh.upload.model.dto.BoardDTO;
-import com.kh.upload.model.vo.Board;
-import com.kh.upload.model.vo.Paging;
-import com.kh.upload.service.BoardService;
-/*
- * REST(Representational State Transfer)
- * : API 를 설계하는 아키텍쳐
- *
- * RESTful : REST 원칙을 준수하는 방식
- *
- * API(Application Programming Interface)
- * : 서로 다른 애플리케이션들이 서로 데이터를 주고 받을 수 있게 하는 도구
- * */
+import com.kh.project.model.dto.BoardDTO;
+import com.kh.project.model.vo.Board;
+import com.kh.project.model.vo.Paging;
+import com.kh.project.service.BoardService;
 
 @RestController
 @RequestMapping("/api/*") // http://loaclhost:8080/api/

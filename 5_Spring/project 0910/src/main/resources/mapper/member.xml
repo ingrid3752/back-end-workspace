@@ -34,14 +34,7 @@
     	SET name = #{name}, phone = #{phone}, email = #{email}
     	WHERE id = #{id}
     </update>
-    <!-- 
-    <update id="updatePassword" parameterType="Member">
-		UPDATE mem_info 
-		SET id = #{id}, password = #{password}
-		WHERE password = #{password}
-	</update> 
-     -->
-	 	
+    
 	
 	<!-- 회원탈퇴 -->
 	<delete id="delete" parameterType="int">

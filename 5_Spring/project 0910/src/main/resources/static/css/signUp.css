@@ -139,9 +139,9 @@ body {
   border-radius: 10px;
   box-shadow: 0px, 0px, 20px, 30px;
 }
-#signh1{
-	margin-top :7%;
-	font-size:2rem;
+#signh1 {
+  margin-top: 7%;
+  font-size: 2rem;
 }
 #name {
   width: 300px;
@@ -157,7 +157,7 @@ body {
   width: 300px;
   height: 40px;
   font-size: 1rem;
-  outline: 1px solid #ACACAC;
+  outline: 1px solid #acacac;
   border: none;
   border-radius: 5px;
 }
@@ -173,7 +173,7 @@ body {
   height: 40px;
   font-size: 1rem;
   margin: 5px;
-  outline: 1px solid #ACACAC;
+  outline: 1px solid #acacac;
   border: none;
   border-radius: 5px;
   text-align: center;
@@ -192,7 +192,7 @@ body {
   position: absolute;
   width: 80px;
   height: 40px;
-  top:3px;
+  top: 3px;
   right: 1px;
   height: 35px;
   border: none;
@@ -200,15 +200,15 @@ body {
   color: white;
   border-radius: 5px;
 }
-#idSpan{
-	margin:0px;
+#idSpan {
+  margin: 0px;
 }
 #idButton:hover {
   background-color: rgba(101, 45, 255, 0.925);
 }
 .spanspan {
   height: 10px;
-  color: #6D6D6D;
+  color: #6d6d6d;
   font-size: 13px;
   margin-left: 0px;
   text-align: center;
@@ -232,13 +232,13 @@ body {
   background-color: rgba(101, 45, 255, 0.925);
 }
 .purple {
-  outline: 1px solid #ACACAC;
+  outline: 1px solid #acacac;
   border-radius: 5px;
   border: none;
 }
 .purple:focus {
   outline: 1px solid #665ae870;
 }
-.signdiv{
-	margin: 5px;
+.signdiv {
+  margin: 5px;
 }

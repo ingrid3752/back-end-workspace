@@ -7,24 +7,14 @@ CREATE TABLE member(
 );
 INSERT INTO member(id, password, name) VALUES ('test1234','12341234','user1234');
 SELECT * FROM member;
+SELECT * FROM board;
 CREATE TABLE board(
-	no INT PRIMARY KEY AUTO_INCREMENT,
-    title VARCHAR(50),
-    content VARCHAR(100),
+	no INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(20),
+    content TEXT,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
     url VARCHAR(200)
 );
-SELECT * FROM board 
--- LIMIT 0, 10; -- 첫 번째 페이지 (page=1)
-LIMIT 0, 5; -- 5 * 0 = 0 / 10 * 0 = 0
-SELECT * FROM board
--- LIMIT 10, 10; -- 두 번째 페이지 (page=2)
-LIMIT 5, 5; -- 5 * 1 = 5 / 10 * 1 = 10
-
-SELECT * FROM board
--- LIMIT 20, 10; -- 세 번째 페이지 (page=3)
-LIMIT 10, 5; -- 5 * 2 = 10 / 10 * 2 = 20
-
-INSERT INTO board(title, content) VALUES('테스트','테스트 정보입니다');
 
 DROP TABLE board;
 DROP TABLE member;

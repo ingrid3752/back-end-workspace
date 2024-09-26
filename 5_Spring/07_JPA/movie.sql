@@ -1,0 +1,10 @@
+DROP TABLE movie;
+SELECT * FROM movie;
+
+
+CREATE TABLE movie (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255),
+    genre VARCHAR(255),
+    actor VARCHAR(255)
+);

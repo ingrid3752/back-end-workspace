@@ -5,7 +5,6 @@ CREATE TABLE member(
     name VARCHAR(20),
     role VARCHAR(20)
 );
-INSERT INTO member(id, password, name) VALUES ('test1234','12341234','user1234');
 SELECT * FROM member;
 SELECT * FROM board;
 CREATE TABLE board(
@@ -18,3 +17,4 @@ CREATE TABLE board(
 
 DROP TABLE board;
 DROP TABLE member;
+SELECT * FROM movie;

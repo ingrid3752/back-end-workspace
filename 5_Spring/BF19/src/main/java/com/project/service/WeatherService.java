@@ -23,7 +23,7 @@ public class WeatherService {
 		return dao.findAll();
 	}
 	
-	public void saveWeatherData(String jsonResponse) throws IOException {
-		List<Weather> Weather = util.parseWeatherData(jsonResponse)
-	}
+//	public void saveWeatherData(String jsonResponse) throws IOException {
+//		List<Weather> Weather = util.parseWeatherData(jsonResponse)
+//	}
 }

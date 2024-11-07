@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.naming.Name;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -107,44 +108,107 @@ public class MovieController {
     }
 
 
-    // 전체 영화 조회
-    // 요청 메서드 : GET
-    // URL : http://localhost:8080/api/movie
-    // 결과값이 필요할 때 build대신 body()
-    @GetMapping("/movie")
-    public ResponseEntity viewAll() {
-        return ResponseEntity.status(HttpStatus.OK).body(service.viewAll());
-    }
+//    // 전체 영화 조회
+//    // 요청 메서드 : GET
+//    // URL : http://localhost:8080/api/movie
+//    // 결과값이 필요할 때 build대신 body()
+//    @GetMapping("/movie")
+//    public ResponseEntity viewAll() {
+//        return ResponseEntity.status(HttpStatus.OK).body(service.viewAll());
+//    }
+//
+//    // 특정 영화 조회
+//    // 요청 메서드 : GET
+//    // URL : http://localhost:8080/api/movie/{id}
+//    @GetMapping("/movie/{id}")
+//    public ResponseEntity view(@PathVariable(name="id") int id) {
+//        return ResponseEntity.status(HttpStatus.OK).body(service.view(id));
+//    }
+//
+//    // 영화 추가
+//    // 요청 메서드 : POST
+//    // URL : http://localhost:8080/api/movie
+//    // Body 형식 : JSON
+//    /*
+//    * {
+//    *   "title": "영화제목",
+//    *   "genre": "영화장르",
+//    *   "actor": "영화배우들"
+//    * }
+//    * */
+//    @PostMapping("/movie")
+//    public ResponseEntity create(@RequestBody Movie vo) {
+//        service.change(vo);
+//        return ResponseEntity.status(HttpStatus.OK).build();
+//    }
+//
+//    // 영화 수정
+//    // 요청 메서드 : PUT
+//    // URL : http://localhost:8080/api/movie
+//    // Body 형식 : JSON
+//    /*
+//     * {
+//     *   "id": "영화ID",
+//     *   "title": "영화제목",
+//     *   "genre": "영화장르",
+//     *   "actor": "영화배우들"
+//     * }
+//     * */
+//    @PutMapping("/movie")
+//    public ResponseEntity update(@RequestBody Movie vo) {
+//        service.change(vo);
+//        return ResponseEntity.status(HttpStatus.OK).build();
+//    }
+//
+//    // 영화 삭제
+//    // 요청 메서드 : DELETE
+//    // URL : http://localhost:8080/api/movie/{id}
+//    @DeleteMapping("/movie/{id}")
+//    public ResponseEntity delete(@PathVariable(name="id") int id) {
+//        service.delete(id);
+//        return ResponseEntity.status(HttpStatus.OK).build();
+//    }
+//
+//
 
-    // 특정 영화 조회
-    // 요청 메서드 : GET
-    // URL : http://localhost:8080/api/movie/{id}
-    @GetMapping("/movie/{id}")
-    public ResponseEntity view(@PathVariable(name="id") int id) {
-        return ResponseEntity.status(HttpStatus.OK).body(service.view(id));
-    }
+// 전체 영화 조회
+// 요청 메서드 : GET
+// URL : http://localhost:8080/api/movie
+// 결과값이 필요할 때 build대신 body()
+@GetMapping("/movie")
+public ResponseEntity viewAll() {
+    return ResponseEntity.status(HttpStatus.OK).body(service.viewAll());
+}
 
-    // 영화 추가
-    // 요청 메서드 : POST
-    // URL : http://localhost:8080/api/movie
-    // Body 형식 : JSON
+// 특정 영화 조회
+// 요청 메서드 : GET
+// URL : http://localhost:8080/api/movie/{id}
+@GetMapping("/movie/{id}")
+public ResponseEntity view(@PathVariable(name = "id")int id) {
+    return ResponseEntity.status(HttpStatus.OK).body(service.view(id));
+}
+
+// 영화 추가
+// 요청 메서드 : POST
+// URL : http://localhost:8080/api/movie
+// Body 형식 : JSON
     /*
-    * {
-    *   "title": "영화제목",
-    *   "genre": "영화장르",
-    *   "actor": "영화배우들"
-    * }
-    * */
-    @PostMapping("/movie")
-    public ResponseEntity create(@RequestBody Movie vo) {
-        service.change(vo);
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
+     * {
+     *   "title": "영화제목",
+     *   "genre": "영화장르",
+     *   "actor": "영화배우들"
+     * }
+     * */
+@PostMapping("/movie")
+public ResponseEntity create(@RequestBody Movie vo) {
+    service.change(vo);
+    return ResponseEntity.status(HttpStatus.OK).build();
+}
 
-    // 영화 수정
-    // 요청 메서드 : PUT
-    // URL : http://localhost:8080/api/movie
-    // Body 형식 : JSON
+// 영화 수정
+// 요청 메서드 : PUT
+// URL : http://localhost:8080/api/movie
+// Body 형식 : JSON
     /*
      * {
      *   "id": "영화ID",
@@ -153,20 +217,38 @@ public class MovieController {
      *   "actor": "영화배우들"
      * }
      * */
-    @PutMapping("/movie")
-    public ResponseEntity update(@RequestBody Movie vo) {
-        service.change(vo);
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
+@PutMapping("/movie")
+public ResponseEntity update(@RequestBody Movie vo) {
+    service.change(vo);
+    return ResponseEntity.status(HttpStatus.OK).build();
+}
 
-    // 영화 삭제
-    // 요청 메서드 : DELETE
-    // URL : http://localhost:8080/api/movie/{id}
-    @DeleteMapping("/movie/{id}")
-    public ResponseEntity delete(@PathVariable(name="id") int id) {
-        service.delete(id);
-        return ResponseEntity.status(HttpStatus.OK).build();
-    }
+// 영화 삭제
+// 요청 메서드 : DELETE
+// URL : http://localhost:8080/api/movie/{id}
+@DeleteMapping("/movie/{id}")
+public ResponseEntity delete(@PathVariable(name = "id")int id) {
+    service.delete(id);
+    return ResponseEntity.status(HttpStatus.OK).build();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
